@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAZA CALCIUM</title>
+</head>
+<script>
+        function calcTable() {
+            var beginning = parseInt(document.getElementById("beginning").value);
+            var ending = parseInt(document.getElementById("ending").value);
+            if (beginning>10||beginning<2||ending>10||ending<2) 
+            {
+                alert("Please enter numbers between 2 and 10");
+                return;
+            }
+
+            var allval="<table border='1'>";
+            for (var a=1; a<=10; a++) 
+            {
+                allval+="<tr>";
+                for (var b=beginning; b<=ending; b++) {
+                    allval+="<td>"+b+" x "+a+" = "+(a*b)+"</td>";
+                }
+                allval+="</tr>";
+            }
+            allval+="</table>";
+            document.getElementById("MTable").innerHTML=allval;
+        }
+</script>
+<body>
+    <label for="beginning">BEGIN:</label>
+    <input type="number" id="beginning" name="beginning">
+    <label for="ending">END:</label>
+    <input type="number" id="ending" name="ending">
+    <button onclick="calcTable()">CALCULATE</button>
+    <div id="MTable"></div>
+</body>
+</html>
